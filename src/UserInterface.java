@@ -81,7 +81,11 @@ public class UserInterface {
                         System.out.println("You are currently holding nothing...");
                     } else {
                         System.out.println("You are now in the posession of :\n " + adventure.getPlayer().getPlayerInventory());
-                    }
+                    } if (adventure.getPlayer().getCurrentWeapon().isEmpty()) {
+                    System.out.println("You have no equipped weapons");
+                }else{
+                    System.out.println("You are in posession of :\n" + adventure.getPlayer().getCurrentWeapon());
+                }
                     break;
                 case "health", "hp":
                     System.out.println("You currently have: " + adventure.getPlayer().getHealth() + " health points");
@@ -97,6 +101,19 @@ public class UserInterface {
                             System.out.println("You can´t eat " + playerChoice + " - it isn`t food!!");
                         case OK:
                             System.out.println("You have eaten the " + playerChoice + " - your health is now: " + " " + adventure.getPlayer().getHealth() + " " + adventure.getPlayer().removeItem(playerChoice));
+                    }
+
+                    case "equip" -> {
+                        TryEquipWeapon equipWeapon = adventure.equipWeapon(playerChoice);
+                        if (equipWeapon == TryEquipWeapon.ITEM_NOT_FOUND) {
+                            System.out.println(playerChoice+" is not in inventory");
+                        } else if (equipWeapon == TryEquipWeapon.NOT_WEAPON){
+                            System.out.println(playerChoice + " is not a weapon");
+                        } else if (equipWeapon == TryEquipWeapon.IS_WEAPON){
+                            System.out.println("You have equipped " + playerChoice);
+                        } else if (equipWeapon == TryEquipWeapon.ALREADY_TWO_WEAPONS){
+                            System.out.println("You already have two weapons, unequip one weapon");
+                        }
                     }
 
                 case "attack":

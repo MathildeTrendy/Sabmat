@@ -7,6 +7,7 @@ public class Player {
 
     private Room currentRoom;
     private ArrayList<Item> playerInventory = new ArrayList<>();
+    private ArrayList<Weapons> equippedWeapons;
     boolean torchLight = false;
     boolean torchInInventory;
     private double health;
@@ -23,7 +24,9 @@ public class Player {
     public void setCurrentRoom(Room currentRoom){
         this.currentRoom = currentRoom;
     }
-
+    public ArrayList<Weapons> getCurrentWeapon(){
+        return equippedWeapons;
+    }
 
 
     public boolean move(String direction) {
@@ -49,6 +52,9 @@ public class Player {
 
     public ArrayList<Item> getPlayerInventory() {
         return playerInventory;
+    }
+    public ArrayList<Weapons> getEquippedWeapons() {
+        return equippedWeapons;
     }
 
     public void addItem (Item item){
@@ -83,6 +89,22 @@ public class Player {
         }
         return null;
     }
+
+    public Item getItemFromEquippedWeapons(String findItem) { //getter, men fjerner ikke
+        for (Item item : equippedWeapons) {
+            if (item.getItemName().toLowerCase().equals(findItem.toLowerCase().trim())) {
+                return item;
+            }
+        }
+        return null; // kaldes ikke, hvis return i if-statementet kaldes
+    }
+    public boolean hasWeapon(){
+        if (equippedWeapons.size()>=1) {
+            return true;
+        } else {return false;}
+    }
+
+
 
     // Getter for health
     public double getHealth() {
@@ -130,7 +152,7 @@ public class Player {
     return null;
     }
 
-
+    
 
     /*
     // Method for having item

@@ -1,12 +1,12 @@
 public class Adventure {
-// This class is the controler for the whole game, but does not control the player
+// This class is the controller for the whole game, but does not control the player
 
     //Field - term for multiple attributes
     private Map map;
     private Player player;
     public enum tryEat {FOOD_NOT_FOUND, IS_NOT_FOOD, YOU_EAT}
 
-    // Adventure constructer, creating the map, player, and setting players currentRoom to starterRoom
+    // Adventure constructor, creating the map, player, and setting players currentRoom to starterRoom
     public Adventure(){
         map = new Map();
         map.createRooms();
@@ -47,6 +47,10 @@ public class Adventure {
 
     public ReturnMessage playerEat(String itemName){
         return player.eatFood(itemName);
+    }
+
+    public TryEquipWeapon equipWeapon(String itemName) {
+        return player.equipWeapon(itemName);
     }
 }
 
