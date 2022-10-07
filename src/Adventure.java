@@ -45,11 +45,11 @@ public class Adventure {
         return player.dropItem(itemName);
     }
 
-    public ReturnMessage playerEat(String itemName){
+    public EatReturnMessage playerEat(String itemName){
         return player.eatFood(itemName);
     }
 
-    public TryEquipWeapon equipWeapon(String itemName) {
+    public EquipReturnMessage equipWeapon(String itemName) {
         return player.equipWeapon(itemName);
     }
 }

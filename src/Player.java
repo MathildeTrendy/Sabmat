@@ -1,4 +1,3 @@
-import javax.swing.plaf.PanelUI;
 import java.util.ArrayList;
 
 public class Player {
@@ -129,16 +128,16 @@ public class Player {
         return null;
     }
 
-    public ReturnMessage eatFood(String itemName){
+    public EatReturnMessage eatFood(String itemName){
         Item item = takeInventory(itemName);
         if (item instanceof Food){
             health += ((Food) item).getHealthPoints();
-            return ReturnMessage.OK; // eatable
+            return EatReturnMessage.OK; // eatable
         }else {
             if (item!=null){
-                return  ReturnMessage.CANT; // not eatable/not a food
+                return  EatReturnMessage.CANT; // not eatable/not a food
             }
-            return ReturnMessage.NOT_FOUND; // No food found
+            return EatReturnMessage.NOT_FOUND; // No food found
         }
     }
 

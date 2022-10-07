@@ -1,4 +1,4 @@
-public enum ReturnMessage {
+public enum EatReturnMessage {
     NOT_FOUND,
     CANT,
     OK

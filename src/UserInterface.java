@@ -92,8 +92,8 @@ public class UserInterface {
                     break;
 
                 case "eat", "drink":
-                    ReturnMessage result = adventure.playerEat(playerChoice);
-                    switch (result) {
+                    EatReturnMessage eatResult = adventure.playerEat(playerChoice);
+                    switch (eatResult) {
                         case NOT_FOUND:
                             System.out.println("there is no such thing as a " + playerChoice + " - et eat anywhere nearby");
                             break;
@@ -104,8 +104,12 @@ public class UserInterface {
                     }
 
                     case "equip" -> {
-                        TryEquipWeapon equipWeapon = adventure.equipWeapon(playerChoice);
-                        if (equipWeapon == TryEquipWeapon.ITEM_NOT_FOUND) {
+                        EquipReturnMessage equipResult = adventure.equipWeapon(playerChoice);
+                        switch (equipResult){
+                            case WEAPON_NOT_FOUND:
+                                System.out.println("there is no such thing as a " + playerChoice);
+                        }
+                        if (equipWeapon == TryEquipWeapon.WEAPON_NOT_FOUND) {
                             System.out.println(playerChoice+" is not in inventory");
                         } else if (equipWeapon == TryEquipWeapon.NOT_WEAPON){
                             System.out.println(playerChoice + " is not a weapon");
