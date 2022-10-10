@@ -7,8 +7,11 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> playerInventory = new ArrayList<>();
     private ArrayList<Weapons> equippedWeapons;
+    /*
     boolean torchLight = false;
     boolean torchInInventory;
+
+     */
     private double health;
     private final double maxHealth = 100;
 
@@ -22,9 +25,6 @@ public class Player {
 
     public void setCurrentRoom(Room currentRoom){
         this.currentRoom = currentRoom;
-    }
-    public ArrayList<Weapons> getCurrentWeapon(){
-        return equippedWeapons;
     }
 
 
@@ -138,6 +138,22 @@ public class Player {
                 return  EatReturnMessage.CANT; // not eatable/not a food
             }
             return EatReturnMessage.NOT_FOUND; // No food found
+        }
+    }
+
+    public EquipReturnMessage equipWeapon(String itemName) {
+        Item item = takeInventory((itemName));
+        if (item != null) {
+            if (item instanceof Weapons) {
+                removeItem(itemName);
+                equippedWeapons.add((Weapons) item);
+                return EquipReturnMessage.IS_A_WEAPON;
+            } else {
+                return EquipReturnMessage.NOT_A_WEAPON;
+            }
+            } else {
+            return EquipReturnMessage.WEAPON_NOT_FOUND;
+
         }
     }
 

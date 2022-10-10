@@ -53,9 +53,9 @@ public class Map {
         Item smallKey = new Item ("Small key", " ");
         Item bottle = new Item ("Glass bottle", " ");
         Item torch = new Item ("Torch", " ");
-        Item machine_gun = new Item ("Machine gun", " ");
-        Item rifles = new Item ("Rifles", " ");
-        Item knives = new Item ("Knives", " ");
+        Item machineGun = new Item ("Machine gun", " ");
+        Item rifle = new Item ("Rifle", " ");
+        Item knive = new Item ("Knive", " ");
         Item pistol = new Item ("Pistol", " ");
         Item ammunition = new Item ("Ammunition", " ");
 
@@ -80,6 +80,7 @@ public class Map {
         room2.addItem(banana);
         room2.addItem(water);
         room2.addItem(lighter);
+        room2.addItem(ammunition);
 
         //Room 3
         room3.setWest(room2);
@@ -98,9 +99,9 @@ public class Map {
         //Room 6
         room6.setNorth(room3);
         room6.setSouth(room9);
-        room6.addItem(machine_gun);
-        room6.addItem(rifles);
-        room6.addItem(knives);
+        room6.addItem(machineGun);
+        room6.addItem(rifle);
+        room6.addItem(knive);
         room6.addItem(pistol);
         room6.addItem(ammunition);
 

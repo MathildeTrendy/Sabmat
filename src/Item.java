@@ -12,16 +12,9 @@ public class Item {
     public String getItemName(){
         return itemName;
     }
-    public void setItemName(){
-        this.itemName = itemName;
-    }
 
     public String getDescription(){
         return description;
-    }
-
-    public void setDescription(){
-        this.description = description;
     }
 
     @Override

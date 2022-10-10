@@ -1,7 +1,8 @@
-public class MeleeWeapon   {
-/*
-    public MeleeWeapon(String name, String description, int damage, double range){
-       super(name, description, damage, range);
+/*public class MeleeWeapon {
+
+   /* public MeleeWeapon(String itemName, String description, int damage, double range){
+       super(itemName, description, damage, range);
     }
-*/
+
 }
+*/

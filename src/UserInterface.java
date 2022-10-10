@@ -20,7 +20,8 @@ public class UserInterface {
         System.out.println("Welcome to Adventure time - choose a direction to go. \n" + "Type in, if you want to go north, south, east or west.");
 
         boolean isRunning = true;
-        do {Scanner sc = new Scanner(System.in);
+        do {
+            Scanner sc = new Scanner(System.in);
 
             //Method for handling all input from user
             String playerInput = sc.nextLine();
@@ -60,7 +61,7 @@ public class UserInterface {
                     break;
 
                 case "take":
-                    Item itemPickedUp = adventure.takeItem(playerChoice);
+                    Item itemPickedUp = adventure.getPlayer().getItem(playerChoice);
                     if (itemPickedUp == null) {
                         System.out.println("no such item exists in this room");
                     } else {
@@ -81,11 +82,12 @@ public class UserInterface {
                         System.out.println("You are currently holding nothing...");
                     } else {
                         System.out.println("You are now in the posession of :\n " + adventure.getPlayer().getPlayerInventory());
-                    } if (adventure.getPlayer().getCurrentWeapon().isEmpty()) {
-                    System.out.println("You have no equipped weapons");
-                }else{
-                    System.out.println("You are in posession of :\n" + adventure.getPlayer().getCurrentWeapon());
-                }
+                    }
+                    if (adventure.getPlayer().getEquippedWeapons().isEmpty()) {
+                        System.out.println("You have no equipped weapons");
+                    } else {
+                        System.out.println("You are in posession of :\n" + adventure.getPlayer().getEquippedWeapons());
+                    }
                     break;
                 case "health", "hp":
                     System.out.println("You currently have: " + adventure.getPlayer().getHealth() + " health points");
@@ -99,39 +101,41 @@ public class UserInterface {
                             break;
                         case CANT:
                             System.out.println("You can´t eat " + playerChoice + " - it isn`t food!!");
+                            break;
                         case OK:
                             System.out.println("You have eaten the " + playerChoice + " - your health is now: " + " " + adventure.getPlayer().getHealth() + " " + adventure.getPlayer().removeItem(playerChoice));
+                            break;
                     }
 
-                    case "equip" -> {
-                        EquipReturnMessage equipResult = adventure.equipWeapon(playerChoice);
-                        switch (equipResult){
-                            case WEAPON_NOT_FOUND:
-                                System.out.println("there is no such thing as a " + playerChoice);
-                        }
-                        if (equipWeapon == TryEquipWeapon.WEAPON_NOT_FOUND) {
-                            System.out.println(playerChoice+" is not in inventory");
-                        } else if (equipWeapon == TryEquipWeapon.NOT_WEAPON){
-                            System.out.println(playerChoice + " is not a weapon");
-                        } else if (equipWeapon == TryEquipWeapon.IS_WEAPON){
-                            System.out.println("You have equipped " + playerChoice);
-                        } else if (equipWeapon == TryEquipWeapon.ALREADY_TWO_WEAPONS){
-                            System.out.println("You already have two weapons, unequip one weapon");
-                        }
+                case "equip", "equipped": {
+                    EquipReturnMessage equipResult = adventure.equipWeapon(playerChoice);
+                    switch (equipResult) {
+                        case WEAPON_NOT_FOUND:
+                            System.out.println("there is no such thing as a " + playerChoice + "nearby");
+                            break;
+                        case IS_A_WEAPON:
+                            System.out.println("You've just picked up " + playerChoice);
+                            break;
+                        case NOT_A_WEAPON:
+                            System.out.println("You can't use" + playerChoice + "as a weapon");
+                            break;
+
+                        default:
+                            System.out.println("Unknown command");
+                            break;
+
+
                     }
 
-                case "attack":
-                    break;
 
-                default:
-                    System.out.println("Unknown command");
-                    break;
+                }
             }
-
-        } while (isRunning);
+        }
+        while (isRunning);
     }
-
 }
+
+
 
 
 

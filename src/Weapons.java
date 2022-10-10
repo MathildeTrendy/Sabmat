@@ -10,6 +10,7 @@ public abstract class Weapons extends Item {
     */
      protected int damage;
      protected double range;
+     protected int maxDamage = 200;
 
     public Weapons(String itemName, String description, int damage, double range) {
         super(itemName, description);
