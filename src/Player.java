@@ -7,11 +7,8 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> playerInventory = new ArrayList<>();
     private Weapons equippedWeapons;
-    /*
-    boolean torchLight = false;
-    boolean torchInInventory;
-
-     */
+    boolean flashLight = false;
+    boolean flashLightInInventory;
     private double health;
     private final double maxHealth = 100;
 
@@ -140,40 +137,38 @@ public class Player {
     return null;
     }
 
-    
-
-    /*
-    // Method for having item
-    public boolean haveTorch (){
+    // Method for having item flashlight in inventory
+    public boolean haveFlashLight (){
         for (Item item : playerInventory){
-            if (item.getItemName().contains("Torch")){
-                torchInInventory = true;
+            if (item.getItemName().contains(" Flashlight ")){
+                flashLightInInventory = true;
             }else {
-                torchInInventory = false;
+                flashLightInInventory = false;
             }
         }
-        return torchInInventory;
+        return flashLightInInventory;
     }
 
-    // Method for turning on light
-    public boolean torchLightOn(){
-        boolean torchLightOn;
-        if (torchLight == true){
-            torchLightOn = true;
+    // Method for knowing if lights on or not
+    public boolean isFlashLightOn(){
+        boolean isFlashLightOn;
+        if (flashLight == true){
+            isFlashLightOn = true;
         }else {
-            torchLightOn = false;
+            isFlashLightOn = false;
         }
-        return torchLightOn;
+        return isFlashLightOn;
     }
 
-    public void toggleTorch (boolean toggleTorch) {
-        if (toggleTorch = true){
-            torchLight = true;
+    // Method for if the flashlight is on
+    public void toggleFlashLight (boolean toggleTorch) {
+        if (toggleFlashLight(); = true){
+            flashLight = true;
         }else {
-            torchLight = false;
+            flashLight = false;
         }
     }
-*/ // en del af når vi skal tænde torch´en
+
 }
 
 

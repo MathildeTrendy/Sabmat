@@ -15,7 +15,7 @@ public class Map {
 
         Room room2 = new Room("Yoshi's Island", "You have just entered Yoshi's Island which is a large, tropical and mountainous\nisland inhabited by the peace-loving Yoshis. " +
                 "You are standing on the beach, next\nto you are some huge musa trees, by the foot of the trees there are some fallen\nbananas. " +
-                "Further ahead is an old well, laying on bricks there is a lighter.\n");
+                "Further ahead is an old well, with lots of water. Laying on bricks there is a flash light.\n");
 
         Room room3 = new Room("Donut Plains", "You have just entered the realm called Donut Plains. " +
                 "The name hints at the strange shape of the island (which looks indeed like a doughnut, when seen from above). " +
@@ -49,7 +49,7 @@ public class Map {
                 "There is no wind. To your left there is an overturned truck, there is scattered bread, apples and tomatoes everywhere. ");
 
         // Item list
-        Item lighter = new Item ("Lighter", " ");
+        Item flashLight = new Item ("Flashlight", " ");
         Item smallKey = new Item ("Small key", " ");
         Item bottle = new Item ("Glass bottle", " ");
         Item torch = new Item ("Torch", " ");
@@ -81,8 +81,7 @@ public class Map {
         room2.setEast(room3);
         room2.addItem(banana);
         room2.addItem(water);
-        room2.addItem(lighter);
-        room2.addItem(ammunition);
+        room2.addItem(flashLight);
 
         //Room 3
         room3.setWest(room2);
