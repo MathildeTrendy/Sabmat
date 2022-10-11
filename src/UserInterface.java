@@ -118,7 +118,7 @@ public class UserInterface {
                             System.out.println("You've just picked up " + playerChoice);
                             break;
                         case NOT_A_WEAPON:
-                            System.out.println("You can't use" + playerChoice + "as a weapon");
+                            System.out.println("You can't use " + playerChoice + "as a weapon, you fucking idiot");
                             break;
 
                         default:

@@ -56,6 +56,7 @@ public class Player {
         return equippedWeapons;
     }
 
+
     public void addItem (Item item){
         playerInventory.add(item);
     }
