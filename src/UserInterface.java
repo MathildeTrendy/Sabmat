@@ -104,11 +104,11 @@ public class UserInterface {
                             System.out.println("You can´t eat " + playerChoice + " - it isn`t food!!");
                             break;
                         case OK:
-                            System.out.println("You have eaten the " + playerChoice + " - your health is now: " + " " + adventure.getPlayer().getHealth() + " " + adventure.getPlayer().removeItem(playerChoice));
+                            System.out.println("You have eaten the " + playerChoice + " - your health is now: " + " " + adventure.getPlayer().getHealth());
                             break;
                     }
 
-                case "equip", "equipped": {
+                case "equip", "equip weapon": {
                     EquipReturnMessage equipResult = adventure.equipWeapon(playerChoice);
                     switch (equipResult) {
                         case WEAPON_NOT_FOUND:

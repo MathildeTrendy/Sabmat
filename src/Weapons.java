@@ -8,6 +8,8 @@ public abstract class Weapons extends Item {
     Item pistols = new Item("Pistol");
     Item ammunition = new Item("Ammunition")
     */
+
+    // procteted means...
      protected int damage;
      protected double range;
      protected int maxDamage = 200;
@@ -16,15 +18,18 @@ public abstract class Weapons extends Item {
         super(itemName, description);
         this.damage = damage;
         this.range = range;
+        this.maxDamage = maxDamage;
     }
 
-   // - skal vi lave getter til navn og description selvom det er gjort ovre i en anden klasse?
 
     public int getDamage(){
         return damage;
 }
-
     public double getRange(){
         return damage;
 }
+    public int getMaxDamage(){
+        return maxDamage;
+    }
+
 }
