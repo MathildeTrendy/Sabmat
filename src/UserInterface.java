@@ -61,10 +61,11 @@ public class UserInterface {
                     break;
 
                 case "take":
-                    Item itemPickedUp = adventure.getPlayer().getItem(playerChoice);
+                    Item itemPickedUp = adventure.getPlayer().takeItem(playerChoice);
                     if (itemPickedUp == null) {
                         System.out.println("no such item exists in this room");
-                    } else {
+                    }
+                    else {
                         System.out.println("You just picked up " + itemPickedUp.getItemName());
                     }
                     break;
