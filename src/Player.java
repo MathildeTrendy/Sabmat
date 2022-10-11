@@ -6,7 +6,7 @@ public class Player {
 
     private Room currentRoom;
     private ArrayList<Item> playerInventory = new ArrayList<>();
-    private ArrayList<Weapons> equippedWeapons;
+    private Weapons equippedWeapons;
     /*
     boolean torchLight = false;
     boolean torchInInventory;
@@ -52,18 +52,12 @@ public class Player {
     public ArrayList<Item> getPlayerInventory() {
         return playerInventory;
     }
-    public ArrayList<Weapons> getEquippedWeapons() {
-        return equippedWeapons;
-    }
 
-    public void addItem (Item item){
-        playerInventory.add(item);
-    }
 
     public Item takeItem (String itemName) {
         Item requestedItem = null;
         for (Item item : currentRoom.getItems()) {
-            if (item.getItemName().equals(itemName)) {
+            if (item.getItemName().equalsIgnoreCase(itemName)) {
                 requestedItem = item;
                 playerInventory.add(item);
                 currentRoom.getItems().remove(item);
@@ -78,29 +72,6 @@ public class Player {
         currentRoom.getItem(String.valueOf(droppedItem));
         return droppedItem;
 
-    }
-
-    public Item getItem(String itemName){
-        for (Item item : playerInventory){
-            if (item.getItemName().equals(itemName)){
-                return item;
-            }
-        }
-        return null;
-    }
-
-    public Item getItemFromEquippedWeapons(String findItem) { //getter, men fjerner ikke
-        for (Item item : equippedWeapons) {
-            if (item.getItemName().toLowerCase().equals(findItem.toLowerCase().trim())) {
-                return item;
-            }
-        }
-        return null; // kaldes ikke, hvis return i if-statementet kaldes
-    }
-    public boolean hasWeapon(){
-        if (equippedWeapons.size()>=1) {
-            return true;
-        } else {return false;}
     }
 
 
@@ -146,20 +117,22 @@ public class Player {
         if (item != null) {
             if (item instanceof Weapons) {
                 removeItem(itemName);
-                equippedWeapons.add((Weapons) item);
+                equippedWeapons = ((Weapons) item);
                 return EquipReturnMessage.IS_A_WEAPON;
             } else {
-                return EquipReturnMessage.NOT_A_WEAPON;
+                    return EquipReturnMessage.NOT_A_WEAPON;
             }
-            } else {
-            return EquipReturnMessage.WEAPON_NOT_FOUND;
-
         }
+        return EquipReturnMessage.WEAPON_NOT_FOUND;
+    }
+
+    public Weapons getEquippedWeapons(){
+        return equippedWeapons;
     }
 
     public Item takeInventory(String itemName) {
         for (Item item : playerInventory){
-            if (item.getItemName().equals(itemName)){
+            if (item.getItemName().equalsIgnoreCase(itemName)){
                 return item;
             }
 

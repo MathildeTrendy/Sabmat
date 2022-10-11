@@ -48,18 +48,20 @@ public class Map {
                 "The sun is at its peak and shines down on you, and warms your body. " +
                 "There is no wind. To your left there is an overturned truck, there is scattered bread, apples and tomatoes everywhere. ");
 
-        // Items
+        // Item list
         Item lighter = new Item ("Lighter", " ");
         Item smallKey = new Item ("Small key", " ");
         Item bottle = new Item ("Glass bottle", " ");
         Item torch = new Item ("Torch", " ");
-        Item machineGun = new Item ("Machine gun", " ");
+
+        // Weapon item list
+        Item machineGun = new RangedWeapon ("Machine gun", " ",-50,5);
         Item rifle = new Item ("Rifle", " ");
         Item knive = new Item ("Knive", " ");
         Item pistol = new Item ("Pistol", " ");
         Item ammunition = new Item ("Ammunition", " ");
 
-        // Food item
+        // Food item list
         Food banana = new Food("banana", " ", 20);
         Food gummy_bear_flower = new Food("gummy_bear_flower", " ", -85);
         Food chocolate_liquid = new Food("liquid_chocolate"," ", -85);

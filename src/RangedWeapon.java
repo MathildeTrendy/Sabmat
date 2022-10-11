@@ -1,19 +1,26 @@
 public class RangedWeapon extends Weapons{
     //ladt våben (ammunition)
 
-    protected int ammunition;
+    protected int ammo;
 
-    public RangedWeapon(String itemName, String description, int damage, double range, int ammunition){
-        super(itemName, description, damage, range);
-        this.ammunition = ammunition;
+    public RangedWeapon(String itemName, String description, int damage, int ammo){
+        super(itemName, description, damage);
+        this.ammo = ammo;
+    }
+    @Override
+    public int getRemainingAmmo(){
+        return ammo;
     }
 
-    public int getAmmunition(){
-        return ammunition;
+    @Override
+    public boolean usableWeapon(){
+        if (ammo == 0){
+        return false;
+        }else{
+            return false;
+        }
     }
 
-    public void ammoUse(){
-        ammunition--;
-    }
+
 
 }

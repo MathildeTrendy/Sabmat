@@ -28,10 +28,8 @@ public class UserInterface {
             playerInput = playerInput.toLowerCase();
             String[] playerInputs = playerInput.split(" ");
             String command = playerInputs[0];
-            String playerChoice = "";
-            if (playerInputs.length > 1) {
-                playerChoice = playerInputs[1];
-            }
+            String playerChoice = getPlayerChoice(playerInputs);
+
 
             switch (command) {
                 case "go":
@@ -84,7 +82,7 @@ public class UserInterface {
                     } else {
                         System.out.println("You are now in the posession of :\n " + adventure.getPlayer().getPlayerInventory());
                     }
-                    if (adventure.getPlayer().getEquippedWeapons().isEmpty()) {
+                    if (adventure.getPlayer().getPlayerInventory().isEmpty()) {
                         System.out.println("You have no equipped weapons");
                     } else {
                         System.out.println("You are in posession of :\n" + adventure.getPlayer().getEquippedWeapons());
@@ -108,14 +106,14 @@ public class UserInterface {
                             break;
                     }
 
-                case "equip", "equip weapon": {
+                case "equip": {
                     EquipReturnMessage equipResult = adventure.equipWeapon(playerChoice);
                     switch (equipResult) {
                         case WEAPON_NOT_FOUND:
                             System.out.println("there is no such thing as a " + playerChoice + "nearby");
                             break;
                         case IS_A_WEAPON:
-                            System.out.println("You've just picked up " + playerChoice);
+                            System.out.println("You just equipped " + playerChoice + " - whats your next move?");
                             break;
                         case NOT_A_WEAPON:
                             System.out.println("You can't use" + playerChoice + "as a weapon");
@@ -133,6 +131,15 @@ public class UserInterface {
             }
         }
         while (isRunning);
+    }
+
+    private String getPlayerChoice(String[] playerInputs){
+        String playerChoice = "";
+        for (int i = 1;i<playerInputs.length;i++){
+            playerChoice += " " + playerInputs[i];
+        }
+        playerChoice = playerChoice.trim();
+        return playerChoice;
     }
 }
 
