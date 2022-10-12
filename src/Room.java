@@ -1,4 +1,3 @@
-import java.security.PublicKey;
 import java.util.ArrayList;
 
     public class Room {
@@ -18,15 +17,27 @@ import java.util.ArrayList;
 
     // List of Items
     public ArrayList<Item>getItems(){
-        return roomItems;}
+        return roomItems;
+    }
+
+    // List of enemies (gætter)
+    public ArrayList<Enemy>getEnemies(){
+        return enemies;
+    }
 
     public Room(String nameOfRoom, String descriptionOfRoom){
         this.nameOfRoom = nameOfRoom;
         this.descriptionOfRoom = descriptionOfRoom;
     }
 
+    //method for adding af item to a room
     public void addItem(Item item){
         roomItems.add(item);
+    }
+
+    //method for adding af enemy to a room
+    public void addEnemy(Enemy enemy){
+        enemies.add(enemy);
     }
 
     // Getter
@@ -80,6 +91,10 @@ import java.util.ArrayList;
          this.west=west;
     }
 
+    public void removeEnemy(Enemy enemy){
+        enemies.remove(enemy);
+    }
+
     // Method for get/take the item
     public Item getItem (String itemName){
         for (Item item : roomItems){
@@ -110,6 +125,7 @@ import java.util.ArrayList;
         return null;
     }
 
+    /*
     public void createMeleeWeapon(String itemName, String description, int damage){
         MeleeWeapon meleeWeapon = new MeleeWeapon(itemName, description, damage);
         addItem(meleeWeapon);
@@ -120,9 +136,21 @@ import java.util.ArrayList;
         addItem(rangedWeapon);
     }
 
-    public void createEnemies(String name, String description, int healthPoints, int damage, Weapons weapon){
-        Enemy enemy = new Enemy(name, description, healthPoints,damage,weapon);
-        add.Enemy(enemy);
+     */
+
+    public void createEnemies(String name, String description, int healthPoints, Weapon weapon){
+        Enemy enemy = new Enemy(name, description, healthPoints,weapon);
+        addEnemy(enemy);
+
+    }
+
+    public Enemy findEnemyByName (String enemyName){
+        for (Enemy enemy : enemies){
+            if (enemy.getName().equals(enemyName)){
+            return enemy;
+            }
+        }
+        return null;
     }
 
 }

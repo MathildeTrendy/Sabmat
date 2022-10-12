@@ -4,7 +4,6 @@ public class Adventure {
     //Field - term for multiple attributes
     private Map map;
     private Player player;
-    public enum tryEat {FOOD_NOT_FOUND, IS_NOT_FOOD, YOU_EAT}
 
     // Adventure constructor, creating the map, player, and setting players currentRoom to starterRoom
     public Adventure(){
@@ -52,5 +51,16 @@ public class Adventure {
     public EquipReturnMessage equipWeapon(String itemName) {
         return player.equipWeapon(itemName);
     }
+
+    public AttackStatus attack (String enemyName){
+        Enemy enemy = currentRoom.findEnemyByName(enemyName);
+        return player.attack(enemy);
+    }
+
+    public int getEnemyHealth(){
+        return enemy.getHealthPoints();
+    }
+
+
 }
 
