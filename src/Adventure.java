@@ -22,11 +22,6 @@ public class Adventure {
         return player.getCurrentRoom();
     }
 
-    // Setter for players current room
-    public Room getStarterRoom(){
-        return map.getStarterRoom();
-    }
-
     // Calling move method from the class Player
     public boolean go(String direction){
         return player.move(direction);
@@ -34,14 +29,6 @@ public class Adventure {
 
     public Item takeInventory(String itemName){
         return player.takeInventory(itemName);
-    }
-
-    public Item takeItem(String itemName){
-        return player.takeItem(itemName);
-    }
-
-    public Item dropItem(String itemName){
-        return player.dropItem(itemName);
     }
 
     public EatReturnMessage playerEat(String itemName){
@@ -52,13 +39,12 @@ public class Adventure {
         return player.equipWeapon(itemName);
     }
 
-    public AttackStatus attack (String enemyName){
-        Enemy enemy = currentRoom.findEnemyByName(enemyName);
-        return player.attack(enemy);
+    public AttackStatus attack(String enemyName){
+        return player.attack(enemyName);
     }
 
     public int getEnemyHealth(){
-        return enemy.getHealthPoints();
+        return getCurrentRoom().getEnemies().get(0).getHealthPoints();
     }
 
 

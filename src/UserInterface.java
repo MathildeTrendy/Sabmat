@@ -14,10 +14,10 @@ public class UserInterface {
     public void start() {
         //introduction to the game
         adventure = new Adventure();
-        System.out.println("\n" + "You have just arrived in an outlandish realm called the Mushroom Kingdom. It was ruled by Princess Toadstool and her faithful Mushroom people. \n" +
+        System.out.println("Welcome to Mario World\n" + "You have just arrived in an outlandish realm called the Mushroom Kingdom. It was ruled by Princess Toadstool and her faithful Mushroom people. \n" +
                 "But one day, evil cast a shadow over the land and the evil King Bowser Koopa emerged with his army of Goombas, Spinies, Flying Koopas, and other malignant creatures. \n" +
                 "King Koopa abducted Princess Toadstool and trapped her. So It's now up to you, to save the princess and defeat King Koopa and his minions\n");
-        System.out.println("Welcome to Adventure time - choose a direction to go. \n" + "Type in, if you want to go north, south, east or west.");
+        System.out.println("Type 'go', followed by the direction you want to go.\nYou can go north, south, east or west.");
 
         boolean isRunning = true;
         do {
@@ -104,7 +104,7 @@ public class UserInterface {
                     EatReturnMessage eatResult = adventure.playerEat(playerChoice);
                     switch (eatResult) {
                         case NOT_FOUND:
-                            System.out.println("there is no such thing as a " + playerChoice + " - et eat anywhere nearby");
+                            System.out.println("there is no such thing as a " + playerChoice + " - eat anywhere nearby");
                             break;
                         case CANT:
                             System.out.println("You can´t eat " + playerChoice + " - it isn`t food!!");
@@ -113,7 +113,7 @@ public class UserInterface {
                             System.out.println("You have eaten the " + playerChoice + " - your health is now: " + " " + adventure.getPlayer().getHealth());
                             break;
                     }
-
+break;
                 case "equip": {
                     EquipReturnMessage equipResult = adventure.equipWeapon(playerChoice);
                     switch (equipResult) {
@@ -129,6 +129,7 @@ public class UserInterface {
 
                     }
                 }
+                break;
                 case "attack":
                     AttackStatus attackStatus = adventure.attack(playerChoice);
                     switch (attackStatus) {
@@ -144,7 +145,7 @@ public class UserInterface {
                             System.out.println("You just attacked the enemy with a " + playerChoice + " - the enemy is now down at: " + adventure.getEnemyHealth());
                     }
 
-
+break;
                 default:
                     System.out.println("Unknown command");
                     break;

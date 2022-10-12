@@ -20,11 +20,10 @@ import java.util.ArrayList;
         return roomItems;
     }
 
-    // List of enemies (gætter)
+    // List of enemies
     public ArrayList<Enemy>getEnemies(){
         return enemies;
     }
-
     public Room(String nameOfRoom, String descriptionOfRoom){
         this.nameOfRoom = nameOfRoom;
         this.descriptionOfRoom = descriptionOfRoom;
@@ -40,7 +39,6 @@ import java.util.ArrayList;
         enemies.add(enemy);
     }
 
-    // Getter
     public Room(String name) {
         this.north = north;
         this.south = south;
@@ -114,35 +112,6 @@ import java.util.ArrayList;
         return null;
     }
 
-    // Method for removing item from inventory, looping through the room items
-    public Item removeItem(String name){
-        for (Item item: getItems()){
-            if (item.getItemName().equals(name)){
-                getItems().remove(item);
-                return item;
-            }
-        }
-        return null;
-    }
-
-    /*
-    public void createMeleeWeapon(String itemName, String description, int damage){
-        MeleeWeapon meleeWeapon = new MeleeWeapon(itemName, description, damage);
-        addItem(meleeWeapon);
-    }
-
-    public void createRangeWeapon(String itemName, String description, int damage, int ammo){
-        RangedWeapon rangedWeapon = new RangedWeapon(itemName, description, damage, ammo);
-        addItem(rangedWeapon);
-    }
-
-     */
-
-    public void createEnemies(String name, String description, int healthPoints, Weapon weapon){
-        Enemy enemy = new Enemy(name, description, healthPoints,weapon);
-        addEnemy(enemy);
-
-    }
 
     public Enemy findEnemyByName (String enemyName){
         for (Enemy enemy : enemies){

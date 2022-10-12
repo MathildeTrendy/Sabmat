@@ -1,6 +1,6 @@
 public class MeleeWeapon extends Weapon {
 
-    //nærkamp - sla
+    //nærkamp
 
    public MeleeWeapon(String itemName, String description, int damage){
        super(itemName, description, damage);

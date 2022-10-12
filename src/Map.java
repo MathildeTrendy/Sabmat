@@ -20,12 +20,12 @@ public class Map {
         Room room3 = new Room("Donut Plains", "You have just entered the realm called Donut Plains. " +
                 "The name hints at the strange shape of the island (which looks indeed like a doughnut, when seen from above). " +
                 "The island is full of trees, lakes and plants, some of them very deadly - so be careful. " +
-                "There is a small key hidden in the grass. Off in the distance you can see something shining, it is a bottle.\n");
+                "There is a small key hidden in the grass. Off in the distance you can see something shining, it is a glass glassBottle.\n");
 
         Room room4 = new Room("Twin Bridges", "You are surrounded by a vast mass of black, dead trees, which howled in the wind like a wolf. In front of you, there is a fortress. " +
                 "The fortress itself is a seemingly-elegant medieval castle that has a gothic, dark exterior. " +
                 "This must be the Twin Bridges castle. \n" +
-                "On your side there is a torch laying in the mudd.\n");
+                "On your side there is a torch laying in the mud.\n");
 
         Room room5 = new Room("Vanilla Dome", "It's all dark… you must have just entered the Vanilla Dome. " +
                 "Vanilla Dome is a huge cave world inside a mountain. Beware of your steps, or you will fall down on the many bottomless pits.\n");
@@ -39,7 +39,7 @@ public class Map {
                 "Ahead of you is a long  dark path that leads to a huge old creepy castle. " +
                 "The path is surrounded by fiery hot lava, which if you get too close will burn your skin.");
 
-        Room room8 = new Room("Chocolate Island", "The smell of Chocolate surrounds your nose, this can not be anything else than the Chocolate island, a " +
+        Room room8 = new Room("Chocolate Island", "The smell of chocolate surrounds your nose, this can not be anything else than the Chocolate island, a " +
                 "mountainous island named after its chocolate-brown coloring and plants and huge chocolate river. " +
                 "You´re standing beside the famous chocolate river that stretches all around the island. " +
                 "By the side of the river there are gummy-bear-flowers in all kind of colors and flavors . ");
@@ -49,21 +49,21 @@ public class Map {
                 "There is no wind. To your left there is an overturned truck, there is scattered bread, apples and tomatoes everywhere. ");
 
         // Item list
-        Item flashLight = new Item ("Flashlight", " ");
-        Item smallKey = new Item ("Small key", " ");
-        Item bottle = new Item ("Glass bottle", " ");
-        Item torch = new Item ("Torch", " ");
+        Item flashLight = new Item ("Flash light", " ");
+        Item smallKey = new Item ("small key", " ");
+        Item glassBottle = new Item ("glass bottle", " ");
+        Item torch = new Item ("torch", " ");
 
         // Weapon item list
-        RangedWeapon machineGun = new RangedWeapon ("Machine gun", " ",50,5);
-        RangedWeapon rifle = new RangedWeapon ("Rifle", " ", 20, 5);
-        MeleeWeapon knive = new MeleeWeapon ("Knive", " ", 5);
-        RangedWeapon pistol = new RangedWeapon ("Pistol", " ", 40,5);
+        RangedWeapon machineGun = new RangedWeapon ("machine gun", " ",50,5);
+        RangedWeapon rifle = new RangedWeapon ("rifle", " ", 20, 5);
+        MeleeWeapon knive = new MeleeWeapon ("knife", " ", 5);
+        RangedWeapon pistol = new RangedWeapon ("pistol", " ", 40,5);
 
         // Food item list
         Food banana = new Food("banana", " ", 20);
-        Food gummy_bear_flower = new Food("gummy_bear_flower", " ", -85);
-        Food chocolate_liquid = new Food("liquid_chocolate"," ", -85);
+        Food gummy_bear_flower = new Food("gummybear flower", " ", -85);
+        Food chocolate_liquid = new Food("liquid chocolate"," ", -85);
         Food bread = new Food("bread"," ", 30);
         Food apple = new Food("apple"," ", 30);
         Food tomato = new Food("tomato"," ", 30);
@@ -90,7 +90,7 @@ public class Map {
         room3.setWest(room2);
         room3.setSouth(room6);
         room3.addItem(smallKey);
-        room3.addItem(bottle);
+        room3.addItem(glassBottle);
 
         //Room 4
         room4.setNorth(room1);

@@ -7,11 +7,7 @@ public class Player {
     private Room currentRoom;
     private ArrayList<Item> playerInventory = new ArrayList<>();
     private Weapon equippedWeapons;
-    /*
-    boolean torchLight = false;
-    boolean torchInInventory;
 
-     */
     private double health;
     private final double maxHealth = 100;
 
@@ -120,10 +116,6 @@ public class Player {
             }
         }
         return EquipReturnMessage.WEAPON_NOT_FOUND;
-    }
-
-    public Weapon getEquippedWeapons(){
-        return equippedWeapons;
     }
 
     public Item takeInventory(String itemName) {
