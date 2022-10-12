@@ -48,14 +48,27 @@ public class UserInterface {
                     System.out.println("Grab an item, by typing 'take' or for help type 'help' ");
                     break;
 
-                case "exit":
+                case "exit", "ex":
                     System.out.println("exiting the game...");
                     isRunning = false;
                     System.exit(1);
                     break;
 
-                case "help", "i need help":
-                    System.out.println("Do you need help?"); //TODO inkludere help setting - gør evt af brugeren kan svare ja eller nej på af få hjælp og ja eller nej til af få et ledetråd
+                case "help":
+                    System.out.println("Here is a list of commands:\n" +
+                                    "type (n)orth to go north \n" +
+                                    "type (s)outh to go south \n" +
+                                    "type (e)ast to go east \n" +
+                                    "type (w)est to go west \n" +
+                                    "type (l)ook to look around in your current location \n" +
+                                    "type (e)eat 'food' to eat" +
+                                    "type (d)rink 'beverage' to drink" +
+                                    "type (h)ealth to view your healthpoints" +
+                                    "type (A)ttack 'enemy' to attack" +
+                                    "type (ex)it to exit game");
+
+                    //TODO inkludere help setting - gør evt af brugeren kan svare ja eller nej på af få hjælp og ja eller nej til af få et ledetråd
+
                     break;
 
                 case "take":
@@ -86,13 +99,14 @@ public class UserInterface {
                         System.out.println("You have no equipped weapons");
                     } else {
                         System.out.println("You are in posession of :\n" + adventure.getPlayer().getEquippedWeapons());
+                        // TODO skal det stå flere gange - altså posession of..?
                     }
                     break;
-                case "health", "hp":
+                case "health", "h":
                     System.out.println("You currently have: " + adventure.getPlayer().getHealth() + " health points");
                     break;
 
-                case "eat", "drink":
+                case "eat", "e", "drink", "d":
                     EatReturnMessage eatResult = adventure.playerEat(playerChoice);
                     switch (eatResult) {
                         case NOT_FOUND:
