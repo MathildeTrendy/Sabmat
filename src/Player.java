@@ -148,7 +148,7 @@ public class Player {
             return AttackStatus.NO_WEAPON;
         }else{
             if (getEquippedWeapons().usableWeapon()){
-                if (!currentRoom.ge)
+                if (!currentRoom.)
             }
         }
 
