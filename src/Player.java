@@ -140,7 +140,19 @@ public class Player {
     return null;
     }
 
-    
+    public AttackStatus attackCommand(String enemyName) {
+
+        Enemy selectedEnemy;
+
+        if(getEquippedWeapons() == null){
+            return AttackStatus.NO_WEAPON;
+        }else{
+            if (getEquippedWeapons().usableWeapon()){
+                if (!currentRoom.ge)
+            }
+        }
+
+    }
 
     /*
     // Method for having item

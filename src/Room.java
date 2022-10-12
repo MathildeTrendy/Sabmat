@@ -14,6 +14,7 @@ import java.util.ArrayList;
     //The Room Class constructs the attributes for the rooms
     //list of items in a room
     private ArrayList <Item> roomItems = new ArrayList<>();
+    private ArrayList<Enemy>enemies = new ArrayList<>();
 
     // List of Items
     public ArrayList<Item>getItems(){
@@ -107,6 +108,21 @@ import java.util.ArrayList;
             }
         }
         return null;
+    }
+
+    public void createMeleeWeapon(String itemName, String description, int damage){
+        MeleeWeapon meleeWeapon = new MeleeWeapon(itemName, description, damage);
+        addItem(meleeWeapon);
+    }
+
+    public void createRangeWeapon(String itemName, String description, int damage, int ammo){
+        RangedWeapon rangedWeapon = new RangedWeapon(itemName, description, damage, ammo);
+        addItem(rangedWeapon);
+    }
+
+    public void createEnemies(String name, String description, int healthPoints, int damage, Weapons weapon){
+        Enemy enemy = new Enemy(name, description, healthPoints,damage,weapon);
+        add.Enemy(enemy);
     }
 
 }
