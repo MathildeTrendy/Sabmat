@@ -1,4 +1,4 @@
-public class RangedWeapon extends Weapons{
+public class RangedWeapon extends Weapon {
     //ladt våben (ammunition)
 
     protected int ammo;
@@ -10,6 +10,10 @@ public class RangedWeapon extends Weapons{
     @Override
     public int getRemainingAmmo(){
         return ammo;
+    }
+
+    public void setAmmo(int ammo){
+        this.ammo = ammo;
     }
 
     @Override

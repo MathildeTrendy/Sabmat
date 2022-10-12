@@ -55,10 +55,10 @@ public class Map {
         Item torch = new Item ("Torch", " ");
 
         // Weapon item list
-        Item machineGun = new RangedWeapon ("Machine gun", " ",-50,5);
-        Item rifle = new RangedWeapon ("Rifle", " ", -20, 5);
-        Item knive = new RangedWeapon ("Knive", " ", -5,50);
-        Item pistol = new RangedWeapon ("Pistol", " ", -40,5);
+        RangedWeapon machineGun = new RangedWeapon ("Machine gun", " ",50,5);
+        RangedWeapon rifle = new RangedWeapon ("Rifle", " ", 20, 5);
+        MeleeWeapon knive = new MeleeWeapon ("Knive", " ", 5);
+        RangedWeapon pistol = new RangedWeapon ("Pistol", " ", 40,5);
 
         // Food item list
         Food banana = new Food("banana", " ", 20);
@@ -69,11 +69,15 @@ public class Map {
         Food tomato = new Food("tomato"," ", 30);
         Food water = new Food("water"," ", 50);
 
+        // Enemy list
+        Enemy kingBowserKoopa = new Enemy("King Bowser Koopa", " ", 200, pistol);
+
         //Setting directions for each room
         //Inherited from room (that's why we use addItem)
         //Room 1
         room1.setEast(room2);
         room1.setSouth(room3);
+        room1.addEnemy(kingBowserKoopa);
 
         //Room 2
         room2.setWest(room1);

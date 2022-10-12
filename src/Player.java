@@ -6,7 +6,7 @@ public class Player {
 
     private Room currentRoom;
     private ArrayList<Item> playerInventory = new ArrayList<>();
-    private Weapons equippedWeapons;
+    private Weapon equippedWeapons;
     /*
     boolean torchLight = false;
     boolean torchInInventory;
@@ -26,7 +26,6 @@ public class Player {
     public void setCurrentRoom(Room currentRoom){
         this.currentRoom = currentRoom;
     }
-
 
     public boolean move(String direction) {
         Room requestedRoom = null;
@@ -53,7 +52,6 @@ public class Player {
         return playerInventory;
     }
 
-
     public Item takeItem (String itemName) {
         Item requestedItem = null;
         for (Item item : currentRoom.getItems()) {
@@ -73,8 +71,6 @@ public class Player {
         return droppedItem;
 
     }
-
-
 
     // Getter for health
     public double getHealth() {
@@ -115,9 +111,9 @@ public class Player {
     public EquipReturnMessage equipWeapon(String itemName) {
         Item item = takeInventory((itemName));
         if (item != null) {
-            if (item instanceof Weapons) {
+            if (item instanceof Weapon) {
                 removeItem(itemName);
-                equippedWeapons = ((Weapons) item);
+                equippedWeapons = ((Weapon) item);
                 return EquipReturnMessage.IS_A_WEAPON;
             } else {
                     return EquipReturnMessage.NOT_A_WEAPON;
@@ -126,7 +122,7 @@ public class Player {
         return EquipReturnMessage.WEAPON_NOT_FOUND;
     }
 
-    public Weapons getEquippedWeapons(){
+    public Weapon getEquippedWeapons(){
         return equippedWeapons;
     }
 
@@ -140,18 +136,35 @@ public class Player {
     return null;
     }
 
-    public AttackStatus attackCommand(String enemyName) {
+    // for player
+    public void calHealth(int damage){
+        health -= damage;
+    }
 
-        Enemy selectedEnemy;
-
-        if(getEquippedWeapons() == null){
-            return AttackStatus.NO_WEAPON;
+    public AttackStatus attack(String enemyName){
+        Enemy enemy = currentRoom.findEnemyByName(enemyName);
+        if (enemy == null){
+            return AttackStatus.NO_ENEMY;
+        } else if (equippedWeapons == null) {
+          return AttackStatus.NO_USABLE_WEAPON;
         }else{
-            if (getEquippedWeapons().usableWeapon()){
-                if (!currentRoom.ge)
+            enemy.calHealth(equippedWeapons.damage);
+            calHealth(enemy.getWeapon().damage);
+            if (!enemy.isDead()) {
+                return AttackStatus.ATTACKED;
+            }else{
+                currentRoom.removeEnemy(enemy);
             }
         }
+       return AttackStatus.NO_SUCH_ENEMY;
+    }
 
+    public boolean isDead(){
+        if (health <= 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     /*
@@ -166,7 +179,7 @@ public class Player {
         }
         return torchInInventory;
     }
-
+ /*
     // Method for turning on light
     public boolean torchLightOn(){
         boolean torchLightOn;
@@ -185,7 +198,7 @@ public class Player {
             torchLight = false;
         }
     }
-*/ // en del af når vi skal tænde torch´en
+*/ // en del af når vi skal tænde lommelygten
 }
 
 

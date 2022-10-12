@@ -1,14 +1,13 @@
 public class Enemy {
     private String name, description;
-    private int healthPoints, damage;
-    private Weapons weapons;
+    private int healthPoints;
+    private Weapon weapon;
 
-    public Enemy(String name, String description, int healthPoints, int damage, Weapons weapons){
+    public Enemy(String name, String description, int healthPoints, Weapon weapons){
         this.name = name;
         this.description = description;
         this.healthPoints = healthPoints;
-        this.damage = damage;
-        this.weapons = weapons;
+        this.weapon = weapons;
     }
 
     public String getName(){
@@ -22,11 +21,25 @@ public class Enemy {
     public int getHealthPoints(){
         return healthPoints;
     }
-    public int getDamage(){
-        return damage;
+
+    public Weapon getWeapon() {
+        return weapon;
     }
 
-    public Weapons getWeapons() {
-        return weapons;
+    //for monster
+    public void calHealth(int damage){
+        healthPoints -= damage;
     }
+
+
+
+    public boolean isDead(){
+        if (healthPoints<=0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
 }

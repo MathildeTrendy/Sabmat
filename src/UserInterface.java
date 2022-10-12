@@ -56,18 +56,16 @@ public class UserInterface {
 
                 case "help":
                     System.out.println("Here is a list of commands:\n" +
-                                    "type (n)orth to go north \n" +
-                                    "type (s)outh to go south \n" +
-                                    "type (e)ast to go east \n" +
-                                    "type (w)est to go west \n" +
-                                    "type (l)ook to look around in your current location \n" +
-                                    "type (e)eat 'food' to eat" +
-                                    "type (d)rink 'beverage' to drink" +
-                                    "type (h)ealth to view your healthpoints" +
-                                    "type (A)ttack 'enemy' to attack" +
-                                    "type (ex)it to exit game");
-
-                    //TODO inkludere help setting - gør evt af brugeren kan svare ja eller nej på af få hjælp og ja eller nej til af få et ledetråd
+                            "type (n)orth to go north \n" +
+                            "type (s)outh to go south \n" +
+                            "type (e)ast to go east \n" +
+                            "type (w)est to go west \n" +
+                            "type (l)ook to look around in your current location \n" +
+                            "type (e)eat 'food' to eat" +
+                            "type (d)rink 'beverage' to drink" +
+                            "type (h)ealth to view your healthpoints" +
+                            "type (A)ttack 'enemy' to attack" +
+                            "type (ex)it to exit game");
 
                     break;
 
@@ -75,8 +73,7 @@ public class UserInterface {
                     Item itemPickedUp = adventure.getPlayer().takeItem(playerChoice);
                     if (itemPickedUp == null) {
                         System.out.println("no such item exists in this room");
-                    }
-                    else {
+                    } else {
                         System.out.println("You just picked up " + itemPickedUp.getItemName());
                     }
                     break;
@@ -97,9 +94,6 @@ public class UserInterface {
                     }
                     if (adventure.getPlayer().getPlayerInventory().isEmpty()) {
                         System.out.println("You have no equipped weapons");
-                    } else {
-                        System.out.println("You are in posession of :\n" + adventure.getPlayer().getEquippedWeapons());
-                        // TODO skal det stå flere gange - altså posession of..?
                     }
                     break;
                 case "health", "h":
@@ -133,23 +127,37 @@ public class UserInterface {
                             System.out.println("You can't use " + playerChoice + "as a weapon, you fucking idiot");
                             break;
 
-                        default:
-                            System.out.println("Unknown command");
-                            break;
-
-
+                    }
+                }
+                case "attack":
+                    AttackStatus attackStatus = adventure.attack(playerChoice);
+                    switch (attackStatus) {
+                        case NO_ENEMY:
+                            System.out.println("There is no enemies in this room");
+                        case NO_SUCH_ENEMY:
+                            System.out.println("There is no enemy by the name of " + playerChoice);
+                        case NO_WEAPON:
+                            System.out.println("You are not in prosession of " + playerChoice + " - try another weapon or look in your inventory");
+                        case NO_USABLE_WEAPON:
+                            System.out.println("There is no usable weapon by the name of " + playerChoice);
+                        case ATTACKED:
+                            System.out.println("You just attacked the enemy with a " + playerChoice + " - the enemy is now down at: " + adventure.getEnemyHealth());
                     }
 
 
-                }
+                default:
+                    System.out.println("Unknown command");
+                    break;
             }
+
         }
         while (isRunning);
     }
 
-    private String getPlayerChoice(String[] playerInputs){
+    // Method for scanner can take more than one ord in as an input
+    private String getPlayerChoice(String[] playerInputs) {
         String playerChoice = "";
-        for (int i = 1;i<playerInputs.length;i++){
+        for (int i = 1; i < playerInputs.length; i++) {
             playerChoice += " " + playerInputs[i];
         }
         playerChoice = playerChoice.trim();
