@@ -56,10 +56,9 @@ public class Map {
 
         // Weapon item list
         Item machineGun = new RangedWeapon ("Machine gun", " ",-50,5);
-        Item rifle = new Item ("Rifle", " ");
-        Item knive = new Item ("Knive", " ");
-        Item pistol = new Item ("Pistol", " ");
-        Item ammunition = new Item ("Ammunition", " ");
+        Item rifle = new RangedWeapon ("Rifle", " ", -20, 5);
+        Item knive = new RangedWeapon ("Knive", " ", -5,50);
+        Item pistol = new RangedWeapon ("Pistol", " ", -40,5);
 
         // Food item list
         Food banana = new Food("banana", " ", 20);
@@ -104,7 +103,6 @@ public class Map {
         room6.addItem(rifle);
         room6.addItem(knive);
         room6.addItem(pistol);
-        room6.addItem(ammunition);
 
         //Room 7
         room7.setNorth(room4);
