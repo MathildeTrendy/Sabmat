@@ -14,10 +14,10 @@ public class UserInterface {
     public void start() {
         //introduction to the game
         adventure = new Adventure();
-        System.out.println("Welcome to Mario World\n" + "You have just arrived in an outlandish realm called the Mushroom Kingdom. It was ruled by Princess Toadstool and her faithful Mushroom people. \n" +
-                "But one day, evil cast a shadow over the land and the evil King Bowser Koopa emerged with his army of Goombas, Spinies, Flying Koopas, and other malignant creatures. \n" +
-                "King Koopa abducted Princess Toadstool and trapped her. So It's now up to you, to save the princess and defeat King Koopa and his minions\n");
-        System.out.println("Type 'go', followed by the direction you want to go.\nYou can go north, south, east or west.");
+        System.out.println("\n                        Welcome to Mario World\n\n" + "You have just arrived in an outlandish realm called the Mushroom Kingdom.\nIt was ruled by Princess Toadstool and her faithful Mushroom people. \n" +
+                "But one day, evil cast a shadow over the land and the evil King Bowser Koopa\nemerged with his army of Goombas, Spinies, Flying Koopas, and other malignant creatures. \n" +
+                "King Koopa abducted Princess Toadstool and trapped her. So It's now up to you, to save\nthe princess and defeat King Koopa and his minions.\n");
+        System.out.println("         Type 'go', followed by the direction you want to go.\n                  You can go north, south, east or west.");
 
         boolean isRunning = true;
         do {
